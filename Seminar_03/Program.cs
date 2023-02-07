@@ -8,7 +8,7 @@ System.Console.Write("Введите координату точки А (Xa): ")
 int numXa = int.Parse(Console.ReadLine());
 System.Console.Write("Введите координату точки А (Ya): ");
 int numYa = int.Parse(Console.ReadLine());
-System.Console.Write("Введите координату точки A (Xb): ");
+System.Console.Write("Введите координату точки A (Za): ");
 int numZa = int.Parse(Console.ReadLine());
 System.Console.Write("Введите координату точки B (Xb): ");
 int numXb = int.Parse(Console.ReadLine());
