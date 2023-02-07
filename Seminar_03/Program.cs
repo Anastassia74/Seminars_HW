@@ -60,3 +60,21 @@ int num19_1=(num19%100000-num19%10000)/10000;
 int numRev=num19_5*10000+num19_4*1000+num19_3*100+num19_2*10+num19_1;
 if (num19==numRev){System.Console.WriteLine($"Число {num19} палиндром!");}
 else{System.Console.WriteLine($"Число {num19} НЕ палиндром!");}
+
+// ВТОРОЙ ВАРИАНТ РЕШЕНИЯ
+
+System.Console.WriteLine();
+int num192;
+while (true)
+{   System.Console.Write("Введите пятизначное целое положительное число): ");
+    num192 = Convert.ToInt32(Console.ReadLine());
+    if (num192>9999&&num192<100000){break;}   }
+int numRev2=0;
+int numCut=num192;
+for (int i=5; i>1; i--)
+{numRev2=Convert.ToInt32(numRev2+(numCut%10)*Math.Pow(10,i-1));
+numCut=numCut/10;}
+numRev2=numRev2+numCut;
+System.Console.WriteLine($"Перевёртыш  {numRev2}");
+if (num192==numRev2){System.Console.WriteLine($"Число {num192} палиндром!");}
+else{System.Console.WriteLine($"Число {num192} НЕ палиндром!");}
