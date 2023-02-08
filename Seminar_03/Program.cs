@@ -38,6 +38,7 @@ for (int i=1; i<=numN; i++)
 System.Console.Write($"{Math.Pow(i,3)}");
 if (i<numN) {System.Console.Write(",  ");}
 }
+System.Console.WriteLine();
 
 // Задача 19. Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 // 14212 -> нет     12821 -> да    23432 -> да
@@ -48,7 +49,7 @@ System.Console.WriteLine();
 int num19;
 while (true)
 {   
-    System.Console.Write("Введите пятизначное целое положительное число): ");
+    System.Console.Write("Введите пятизначное целое положительное число: ");
     num19 = int.Parse(Console.ReadLine());
     if (num19>9999&&num19<100000){break;}
 }
@@ -66,7 +67,7 @@ else{System.Console.WriteLine($"Число {num19} НЕ палиндром!");}
 System.Console.WriteLine();
 int num192;
 while (true)
-{   System.Console.Write("Введите пятизначное целое положительное число): ");
+{   System.Console.Write("Введите пятизначное целое положительное число: ");
     num192 = Convert.ToInt32(Console.ReadLine());
     if (num192>9999&&num192<100000){break;}   }
 int numRev2=0;
@@ -78,3 +79,30 @@ numRev2=numRev2+numCut;
 System.Console.WriteLine($"Перевёртыш  {numRev2}");
 if (num192==numRev2){System.Console.WriteLine($"Число {num192} палиндром!");}
 else{System.Console.WriteLine($"Число {num192} НЕ палиндром!");}
+
+
+// ВАРИАНТ ТРИ - ЛЮБОЕ ЧИСЛО ДО 10 знаков
+
+System.Console.WriteLine();
+System.Console.WriteLine("Задача 19. Напишите программу, которая принимает на вход число не более десятизначного и проверяет, является ли оно палиндромом.");
+System.Console.WriteLine();
+int num193;
+while (true)
+{   
+    System.Console.Write("Введите целое положительное число не более 10 знаков: ");
+    num193 = Convert.ToInt32(Console.ReadLine());
+    if (num193>0 && num193<10000000000){break;}
+}
+int numRev3=0;
+int numCut3=num193;
+int len;
+for (len=1;numCut3>9;len++)
+{numCut3=numCut3/10;}
+numCut3=num193;
+for (int i=len; i>1; i--)
+{numRev3=Convert.ToInt32(numRev3+(numCut3%10)*Math.Pow(10,i-1));
+numCut3=numCut3/10;}
+numRev3=numRev3+numCut3;
+System.Console.WriteLine($"Перевёртыш  {numRev3}");
+if (num193==numRev3){System.Console.WriteLine($"Число {num193} палиндром!");}
+else{System.Console.WriteLine($"Число {num193} НЕ палиндром!");}
