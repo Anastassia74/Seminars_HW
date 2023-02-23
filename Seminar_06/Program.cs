@@ -26,11 +26,26 @@ switch (task)
 Console.Clear();
 System.Console.WriteLine("Ваш выбор:");
 System.Console.WriteLine("Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.");
-System.Console.WriteLine("Введите целые числа через пробел:");
-int[] array41 = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+System.Console.WriteLine();
+// System.Console.WriteLine("Введите целые числа через пробел:");
+// int[] array41 = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+// int countMoreThenZero=0;
+// for (int i = 0; i < array41.Length; i++) countMoreThenZero += array41[i]>0?1:0; 
+// System.Console.WriteLine($"Вы ввели {countMoreThenZero} чисел, больше нуля.");
+System.Console.WriteLine("Вводите числа, конец ввода - 0");
+string str = string.Empty;
+while (true)
+{
+var number = Console.ReadLine();
+if (number=="0") break;
+str+= number+" ";
+}
+var arrayStr=str.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+var arrayInt = Array.ConvertAll(arrayStr,int.Parse);
+Console.WriteLine("Полученный массив int = "+ String.Join("#", arrayInt));
 int countMoreThenZero=0;
-for (int i = 0; i < array41.Length; i++) countMoreThenZero += array41[i]>0?1:0; 
-System.Console.WriteLine($"Вы ввели {countMoreThenZero} чисел, больше нуля.");
+for (int i = 0; i < arrayInt.Length; i++) countMoreThenZero += arrayInt[i]>0?1:0; 
+System.Console.WriteLine($"Количество введённых вами чисел больше нуля = {countMoreThenZero}.");
 break;
 case 43:
 Console.Clear();
@@ -57,7 +72,7 @@ System.Console.WriteLine("Задача 44: С помощью рекурсии в
 System.Console.WriteLine();
 System.Console.Write("Введите целое положительное число: ");
 int nF = int.Parse(Console.ReadLine());
-for (int i = 0; i <=nF; i++)
+for (int i = 1; i <=nF; i++)
 {
     Console.WriteLine($" f({i}) = {Fibonacci(i)}");
 }
